@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!--
+  Configuration Hibernate NATIVE (SessionFactory), lue par HibernateUtil.
+  L'application utilise JPA (persistence.xml) ; ce fichier est conservé pour l'énoncé.
+  Attention : dans un fichier XML, "&" doit s'écrire "&amp;".
+-->
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/gestion_commerciale?createDatabaseIfNotExist=true&amp;useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <mapping class="org.example.entities.Categorie"/>
+        <mapping class="org.example.entities.Produit"/>
+        <mapping class="org.example.entities.Commande"/>
+        <mapping class="org.example.entities.CommandeProduit"/>
+        <mapping class="org.example.entities.User"/>
+        <mapping class="org.example.entities.Client"/>
+        <mapping class="org.example.entities.Fournisseur"/>
+    </session-factory>
+</hibernate-configuration>
